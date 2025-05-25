@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound.jsx'
 export default function App() {
   return (
     <HashRouter>
-      <Routes>
+      <Routes> 
         <Route path="/" element={<Home />} />
         <Route path="posts/:postId" element={<PostView />} />
         <Route path="*" element={<NotFound />} />
