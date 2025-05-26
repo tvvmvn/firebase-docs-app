@@ -4,6 +4,7 @@ import {
 } from 'react'
 import { Link } from 'react-router'
 import { getPosts } from '../service/postService'
+import ThemeButton from '../components/ThemeButton'
 
 export default function Home() {
 
@@ -12,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     fetchData()
   }, [])
-  
+
   async function fetchData() {
     const _posts = await getPosts()
     setPosts(_posts);
@@ -20,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-52 bg-linear-to-r from-cyan-500 to-blue-500 flex justify-center items-center">
+      <div className="h-52 bg-linear-to-t from-cyan-500 to-blue-500 dark:from-blue-900 dark:to-black flex justify-center items-center">
         <h1 className="text-4xl font-bold text-white flex items-center">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -33,15 +34,20 @@ export default function Home() {
         </h1>
       </div>
 
-      <main className="max-w-2xl mt-12 mx-auto">
+      <main className="max-w-2xl mt-8 mx-auto">
+      
+        <div className="flex justify-end pr-4 mb-4">
+          <ThemeButton />
+        </div>
+
         <ul>
           {posts.map(post => (
-            <li key={post.id} className="border-b border-b-gray-200">
+            <li key={post.id} className="border-b border-b-gray-200 dark:border-b-gray-800">
               <Link 
                 to={"/posts/" + post.id} 
-                className="p-4 flex justify-between hover:bg-gray-100"
+                className="p-4 flex justify-between hover:bg-gray-100 dark:hover:bg-gray-800"
               >
-                <span>{post.title}</span>
+                <span className="dark:text-white">{post.title}</span>
                 <span className="text-gray-400">{post.displayDate}</span>
               </Link>
             </li>

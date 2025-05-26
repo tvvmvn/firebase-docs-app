@@ -1,16 +1,16 @@
 import { db } from '../firebase'
 import { 
   doc, 
-  setDoc, 
   getDoc,
   getDocs, 
   updateDoc,
   collection, 
-  Timestamp
 } from 'firebase/firestore'
+import seedDatabase from '../seeder';
+
+seedDatabase()
 
 export async function getPosts() {
-
   const querySnapshot = await getDocs(collection(db, "posts"));
   const posts = [];
 

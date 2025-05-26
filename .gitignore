@@ -25,3 +25,9 @@ dist-ssr
 
 #
 .env
+
+# firebase
+.firebaserc
+.firebase-debug.log
+.firebase.json
+.firestore-debug.log
