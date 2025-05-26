@@ -21,5 +21,5 @@ export const db = getFirestore(app);
 
 // Connect local react-server to firebase emulator 
 if (window.location.hostname === "localhost") {
-  connectFirestoreEmulator(db, "localhost", 8080);
+  connectFirestoreEmulator(db, "localhost", 8080)
 }
