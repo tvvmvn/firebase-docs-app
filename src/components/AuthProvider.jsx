@@ -4,7 +4,7 @@ import {
   createContext, 
   useContext 
 } from "react";
-import { authStateListener } from "../../../firebase-app/src/service/appService";
+import { authStateListener } from "../service/authService";
 
 const AuthContext = createContext()
 
