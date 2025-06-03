@@ -4,7 +4,7 @@ export default function ThemeButton() {
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
   const html = document.documentElement
-
+  console.log(theme)
   useEffect(() => {
     if (theme == "dark") {
       html.classList.add("dark")
@@ -16,24 +16,13 @@ export default function ThemeButton() {
   }, [theme])
 
   return (
-    <button
-      className="relative bg-gray-100 dark:bg-gray-800 cursor-pointer"
-      style={{
-        width: "40px", 
-        height: "12px"
-      }}
-      onClick={() => setTheme(theme == "light" ? "dark" : "light")}
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 512 512"
+      className="h-6 cursor-pointer fill-gray-200"
+      onClick={() => setTheme(theme == 'light' ? 'dark' : 'light' )}
     >
-      <span 
-        className="absolute transition-all bg-white shadow"
-        style={{ 
-          top: "-4px",
-          left: theme == "dark" ? "20px" : "0px" ,
-          width: "20px",
-          height: "20px"
-        }}
-      >
-      </span>
-    </button>
+      <path d="M448 256c0-106-86-192-192-192l0 384c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/>
+    </svg>
   )
 }
